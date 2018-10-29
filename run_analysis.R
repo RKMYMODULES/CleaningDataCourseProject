@@ -69,4 +69,4 @@ DT <- data.table(DFLABMERGED2)
 RESULTQUEST5 <- aggregate(DT[, 1:561], list(DT$LABEL_ID, DT$LABELS), mean)
 
 #Write theQUESTION5 dataset to CSV with  row.name option equal to FALSE
-write.table(RESULTQUEST5, file="TIDYDATASETQUEST5.csv", row.name=FALSE)
+write.table(RESULTQUEST5, file="TIDYDATASETQUEST5.txt", row.name=FALSE)
