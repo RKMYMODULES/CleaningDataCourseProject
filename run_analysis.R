@@ -22,9 +22,9 @@ activitieslabels <- read.csv("activity_labels.txt", sep="", header=FALSE)
 #Get labels for all measurements
 measurementslabels <- read.csv("features.txt",header=FALSE, sep="")
 #Set training dataset column's labels for all measurements
-colnames(traindf) <- c(as.character(measurementslabels$V2))
+colnames(traindf) <- c(as.character(paste0(measurementslabels$V1,"_",measurementslabels$V2)))
 #Set test dataset column's labels for all measurements
-colnames(testdf) <- c(as.character(measurementslabels$V2))
+colnames(testdf) <- c(as.character(paste0(measurementslabels$V1,"_",measurementslabels$V2)))
 
 ################# QUESTION 1 #################
 #Import sqldf library to perform our merge
