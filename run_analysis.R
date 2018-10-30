@@ -18,8 +18,13 @@ trainlab <- read.csv("train/Y_train.txt", header=FALSE)
 #Get the test measures label ID's
 testlab <- read.csv("test/Y_test.txt", header=FALSE)
 #Get all the 06 labels for the label ID's
-alllabels <- read.csv("activity_labels.txt", sep="", header=FALSE)
-
+activitieslabels <- read.csv("activity_labels.txt", sep="", header=FALSE)
+#Get labels for all measurements
+measurementslabels <- read.csv("features.txt",header=FALSE, sep="")
+#Set training dataset column's labels for all measurements
+colnames(traindf) <- c(as.character(measurementslabels$V2))
+#Set test dataset column's labels for all measurements
+colnames(testdf) <- c(as.character(measurementslabels$V2))
 
 ################# QUESTION 1 #################
 #Import sqldf library to perform our merge
@@ -53,7 +58,7 @@ RESULTQUEST3 <- DFLABMERGED
 
 ################# QUESTION 4 #################
 #Add the labels for each activities
-DFLABMERGED2 <- sqldf('select T.*, U.V2 as LABELS from DFLABMERGED T left outer join alllabels U on U.V1=T.LABEL_ID')
+DFLABMERGED2 <- sqldf('select T.*, U.V2 as LABELS from DFLABMERGED T left outer join activitieslabels U on U.V1=T.LABEL_ID')
 #OUTPUT DATASET ==> RESULTQUEST4
 RESULTQUEST4 <- DFLABMERGED2
 
