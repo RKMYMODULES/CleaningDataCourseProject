@@ -1,4 +1,5 @@
 ################ PREREQUESITES #################
+
 GET THE ZIP's URL
 
 Using the download file method, download the zip file related to the previous URL
@@ -22,6 +23,7 @@ Get labels for all measurements
 Set training dataset column's labels for all measurements
 
 Set test dataset column's labels for all measurements
+
 ################ QUESTION 1 #################
 
 Import sqldf library to perform our merge
@@ -37,6 +39,7 @@ Calculate Mean and Standard Deviation for each measures
 OUTPUT DATASET ==> RESULTQUEST2
 
 ################ QUESTION 3 #################
+
 Join descriptive activity to merged dataset
 
 1- Get the descriptive activities for training datas
